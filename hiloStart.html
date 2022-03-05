@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+
+<!--
+  FILE          : hiloStart.html
+  PROJECT       : WEB DESIGN AND DEVELOPMENT: Hi-Lo Game
+  PROGRAMMER    : Purv Pandya & Deep Patel
+  FIRST VERSION : 2021-10-20
+  DESCRIPTION   : Hi-Lo game encorages user to play the game. It also
+				  asks user to enter their name. It will check if user
+				  kept name field empty. If it is empty, it will show 
+				  error. Else, it will go to next page.
+-->
+
+
+
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Hi-Lo Game
+    </title>
+	
+	<style type="text/css">
+	
+		h1 {
+			padding: 16px;
+			text-align: center;
+			color: white;
+			font-size: 28px;
+			background: #1acb8d;
+		}
+		
+		p {
+			color: darkgreen;
+		}
+		
+		body {
+			background-color:lightyellow
+		}
+		
+	</style>
+	
+    <script type="text/javascript">
+
+		/*
+		 * FUNCTION		:	validateName()
+		 * PURPOSE		:	Validates the username entered by the user. Checks if the username is not blank.
+		 * PARAMETERS	:	NONE
+		 */
+		function validateName() {
+
+			var whichName = document.getElementById("userName").value;	// The name that is to be validated
+
+			document.getElementById("nameError").innerHTML = "";	// Clear the inner html from any previous use
+
+			// If the name entered is blank print error message
+			if (whichName.trim().length == 0) {
+				document.getElementById("nameError").innerHTML = "Your Name <b>cannot</b> be BLANK.";
+			}
+
+			// else, the name entered is not blank and move to the next div
+			else {
+				return true;
+			}
+			return false;
+		}
+		
+    </script>
+    
+</head>
+<body>
+
+	<form action="/maxNumber.asp" method="post" onsubmit="return validateName();">
+	
+		<h1>Hi-Lo Game</h1>
+	
+		<div id="headDiv">
+			<p>Let's Play Hi-Lo Game!</p>
+		</div>
+		
+		<div id="userNamePrompt">
+		
+			<p>Please Enter Your Name:</p>
+
+			<input type="text" id="userName" name="userName"/>
+			<input type="submit" value="Submit" onclick="validateName();" />
+
+			<div id="nameError" style="color:red;"></div>
+			
+		</div>
+
+	</form>
+	
+</body>
+</html>
